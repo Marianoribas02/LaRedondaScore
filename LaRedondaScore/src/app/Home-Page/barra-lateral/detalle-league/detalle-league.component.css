@@ -1,0 +1,156 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  background: url(../../../Imagenes/Fondo.jpg) no-repeat center fixed;
+  background-size: cover;
+  flex-direction: column;
+  overflow-y: auto;
+  padding-top: 80px;
+}
+
+
+/* Contenedor principal */
+.main-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  width: 90%;
+  max-width: 2500px;
+}
+
+/* Sección de detalles de la liga a la izquierda */
+.detallegue-container {
+  flex: 1;
+  min-width: 500px;
+  margin-right: 20px;
+  width: 60%;
+}
+
+/* Navegación de temporadas y rondas */
+.season-navigation, .round-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.arrow-button {
+  background-color: #FF9800;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.arrow-button:hover {
+  background-color: #F57C00;
+  transform: scale(1.05);
+}
+
+.arrow-button:active {
+  background-color: #E65100;
+  transform: scale(1.02);
+}
+
+.season-navigation span, .round-navigation span {
+  font-size: 18px;
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* Tarjetas de partidos */
+.match {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  color: #e0e0e0;
+  border-radius: 20px;
+  padding: 20px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.partidos-title {
+  text-align: center;
+  color: #FFD700;
+}
+
+/* Equipo y marcador alineados horizontalmente */
+.team-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.team {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.team img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.score {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #f0f0f0;
+  text-align: center;
+  flex-shrink: 0;
+  margin: 0 10px;
+}
+
+/* Detalles del estadio y árbitro centrados */
+.details {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.details p {
+  font-size: 0.9em;
+  color: #f0f0f0;
+  margin-top: 5px;
+}
+
+.details strong {
+  font-weight: bold;
+  color: #FFD700;
+}
+
+/* Mensaje de no-partidos */
+.no-partidos {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.3);
+  color: #ffffff;
+  border-radius: 20px;
+  padding: 15px;
+  text-align: center;
+  margin: 10px 0;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.no-partidos p {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #FF9800;
+}

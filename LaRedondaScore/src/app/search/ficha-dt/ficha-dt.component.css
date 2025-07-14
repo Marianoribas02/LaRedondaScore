@@ -1,0 +1,139 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../../Imagenes/Fondo.jpg) no-repeat center fixed;
+    background-size: cover;
+    flex-direction: column; 
+    overflow-y: auto;
+  }
+
+  .ficha-dt-container {
+    margin-top: 120px;
+    width: 90%;
+    max-width: 800px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(80px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #e0e0e0;
+    border-radius: 20px;
+    padding: 30px 25px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ficha-dt-container h2 {
+    font-size: 2em;
+    color: #FFD700;
+    text-align: center;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.dt-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.dt-photo {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    margin-bottom: 20px;
+}
+
+.dt-details {
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    justify-content: left;
+}
+
+.dt-details p {
+    font-size: 1.1em;
+    margin: 8px 0;
+    font-weight: 500;
+}
+
+.dt-details strong {
+    color: #FFD700;
+}
+
+.dt-stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    color: #fff;
+}
+
+.dt-stat-item {
+    text-align: center;
+    margin: 0 15px;
+}
+
+.dt-stat-item h4 {
+    font-size: 1.2em;
+    color: #FFD700;
+    margin-bottom: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+.dt-stat-item p {
+    font-size: 1em;
+    font-weight: 500;
+}
+
+.mensaje-feedback {
+    text-align: center;
+    font-size: 0.9em;
+    color: #FFD700;
+    margin-top: 15px;
+}
+
+.career-container {
+    margin-top: 20px;
+    text-align: center; /* Centra el contenido horizontalmente */
+}
+
+.career-container h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #FFD700;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.career-container ul {
+    list-style-type: none; /* Quita los puntos de la lista */
+    padding: 0;
+}
+
+.career-item {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra los elementos dentro de cada item */
+    margin-bottom: 10px;
+}
+
+.team-logo {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.team-name {
+    font-weight: bold;
+    margin-right: 10px;
+    color: #fff; /* Ajusta el color si es necesario */
+}
+
+.period {
+    color: #FFD700;
+    font-style: italic;
+}

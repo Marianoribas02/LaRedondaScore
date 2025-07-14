@@ -1,0 +1,53 @@
+<div class="background-container">
+  
+  <app-nav2></app-nav2>
+
+
+<div class="perfil-container">
+    <h2>Perfil del Usuario</h2>
+  
+    <div *ngIf="user">
+      <p><strong>Nombre de Usuario:</strong> {{ user.username }}</p>
+      <p *ngIf="user.useremail"><strong>Email:</strong> {{ user.useremail }}</p>
+    </div>
+  
+    <hr />
+  
+    <div *ngIf="userFavoritos.length > 0">
+      <h3>Equipos Favoritos</h3>
+      <ul>
+        <li *ngFor="let equipo of userFavoritos">
+          <img [src]="equipo.imagen" width="40" />
+          {{ equipo.nombre }}
+        </li>
+      </ul>
+    </div>
+  
+    <div *ngIf="userFavoritos.length === 0">
+      <p>No tenés equipos favoritos aún.</p>
+    </div>
+  </div>
+
+  <div *ngIf="user.loginTipo != 'google'" class="perfil-container">
+    <h2>Cambiar contraseña</h2>
+    
+  
+    <!-- Sección para cambiar la contraseña -->
+    <div>
+      <label for="newPassword">Nueva Contraseña:</label>
+      <input 
+        type="password" 
+        id="newPassword" 
+        [(ngModel)]="newPassword" 
+        placeholder="Ingresa nueva contraseña"
+      />
+    </div>
+  
+    <button (click)="changePassword()">Cambiar Contraseña</button>
+  
+    <div *ngIf="passwordChanged">
+      <p>Contraseña cambiada exitosamente!</p>
+    </div>
+  </div>
+
+</div>

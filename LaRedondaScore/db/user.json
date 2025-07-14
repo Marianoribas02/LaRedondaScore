@@ -1,0 +1,72 @@
+{
+  "users": [
+    {
+      "id": "3362",
+      "username": "Etienne2024",
+      "password": "Mariano",
+      "loginTipo": "manual"
+    },
+    {
+      "id": "VPTNd127aoVfiY6zIGk4IpvZrHu2",
+      "username": "Etienne Torres",
+      "useremail": "etiennediablo11@gmail.com",
+      "password": "",
+      "loginTipo": "google"
+    },
+    {
+      "id": "NNNJGuqW8XSeLb7pf8GydAqeVo33",
+      "username": "Dago Torres",
+      "useremail": "dagotorres295@gmail.com",
+      "password": "",
+      "loginTipo": "google"
+    },
+    {
+      "id": "OrX7Y4tsc2NRyV8SV2VmYdmVR6l1",
+      "username": "Etienne Dago Torres",
+      "useremail": "etiennedagotorres@gmail.com",
+      "password": "",
+      "loginTipo": "google"
+    },
+    {
+      "id": "GY5mgdqpIzLIkEZZRj9bcUKo4rF2",
+      "username": "Eti Torres gambino",
+      "useremail": "etitorresgambino@gmail.com",
+      "password": "",
+      "loginTipo": "google"
+    }
+  ],
+  "favoritos": [
+    {
+      "id": "8f72",
+      "userId": "c58c",
+      "equipos": {}
+    },
+    {
+      "id": "cc82",
+      "userId": "GY5mgdqpIzLIkEZZRj9bcUKo4rF2",
+      "equipos": {
+        "1": {
+          "nombre": "Lazio",
+          "imagen": "https://media.api-sports.io/football/teams/487.png",
+          "id": 487
+        }
+      }
+    },
+    {
+      "id": "6692",
+      "userId": "3362",
+      "equipos": {
+        "1": {
+          "nombre": "Independiente",
+          "imagen": "https://media.api-sports.io/football/teams/453.png",
+          "id": 453
+        },
+        "2": {
+          "nombre": "Argentina",
+          "imagen": "https://media.api-sports.io/football/teams/26.png",
+          "id": 26
+        }
+      }
+    }
+  ]
+}

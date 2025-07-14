@@ -1,0 +1,39 @@
+
+<body>
+    <app-nav2></app-nav2>
+    <app-barra-lateral></app-barra-lateral> 
+<div *ngIf="dtDetails" class="ficha-dt-container">
+  <h2>{{ dtDetails.name }}</h2>
+
+  <div class="dt-info">
+    <img [src]="dtDetails.photo" alt="{{ dtDetails.name }} Foto" class="dt-photo">
+    
+    <div class="dt-details">
+      <p><strong>Edad:</strong> {{ dtDetails.age }}</p>
+      <p><strong>Nacionalidad:</strong> {{ dtDetails.nationality }}</p>
+      <p><strong>Peso:</strong> {{ dtDetails.weight }}</p>
+      <p><strong>Altura:</strong> {{ dtDetails.height ? dtDetails.height : 'No disponible' }}</p> 
+      <p><strong>Fecha Nacimiento:</strong> {{ dtDetails.birth.date }}</p>
+    </div>
+  </div>
+
+  <div *ngIf="dtCareer.length > 0" class="career-container">
+    <h3>Carrera DT</h3>
+    <ul>
+      <li *ngFor="let job of dtCareer">
+        <div class="career-item">
+          <img [src]="job.team.logo" [alt]="job.team.name" class="team-logo">
+          <span class="team-name">{{ job.team.name }}</span>
+          <span class="period">
+            ({{ job.start }} - {{ job.end ? job.end : 'Presente' }})
+          </span>
+        </div>
+      </li>
+    </ul>
+
+  </div>
+</div>
+
+
+
+</body>

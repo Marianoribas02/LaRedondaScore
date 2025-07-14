@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url(../../Imagenes/FondoPage.png)no-repeat center fixed;
+    background-size: cover;
+    flex-direction: column; 
+    overflow-y: auto;
+}

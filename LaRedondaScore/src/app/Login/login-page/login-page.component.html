@@ -1,0 +1,63 @@
+<body>
+  <img src="Logoinicio2.png" alt="" class="logo">
+  
+  <div class="wrapper">
+    <form #loginForm="ngForm" (ngSubmit)="login()" novalidate>
+      <h1>Acceder</h1>
+
+      <!-- Usuario -->
+      <div class="input-box">
+        <input 
+          type="text" 
+          placeholder="Usuario" 
+          [(ngModel)]="username" 
+          name="username" 
+          required 
+          #usernameInput="ngModel">
+        <i class='bx bxs-user'></i>
+        <div *ngIf="usernameInput.invalid && (usernameInput.dirty || usernameInput.touched)" class="error-message">
+          El usuario es obligatorio.
+        </div>
+      </div>
+
+      <!-- Contraseña -->
+      <div class="input-box">
+        <input 
+          type="password" 
+          placeholder="Contraseña" 
+          [(ngModel)]="password" 
+          name="password" 
+          required 
+          #passwordInput="ngModel">
+        <i class='bx bxs-lock-alt'></i>
+        <div *ngIf="passwordInput.invalid && (passwordInput.dirty || passwordInput.touched)" class="error-message">
+          La contraseña es obligatoria.
+        </div>
+      </div>
+
+      <!-- Mostrar mensaje de error -->
+      <div *ngIf="errorMessage" class="error-message">
+        {{ errorMessage }}
+      </div>
+
+      <!-- Botón de submit -->
+      <button type="submit" [disabled]="loginForm.invalid" class="btn">INGRESA</button>
+
+
+      <div class="row boton-google">
+        <button class="btn btn-lg btn-google btn-block text-uppercase btn-outline" (click)="logInConGoogleYRedirigir()">
+          <img src="https://img.icons8.com/color/22/000000/google-logo.png"> Sign in Google
+        </button>
+      </div>
+      
+
+
+      <div class="register-link">
+        <p>¿Aún no tenés cuenta en LaRedondaScore? 
+          <a href="javascript:void(0);" (click)="openRegisterWindow()">¡Regístrate acá!</a>
+        </p>
+      </div>
+
+    </form>
+  </div>
+</body>

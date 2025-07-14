@@ -1,0 +1,34 @@
+<div class="sidebar">
+  <h2>Paises</h2>
+  <ul>
+    <li *ngFor="let country of countries" 
+        (click)="loadleagues(country.name)" 
+        [class.expanded]="visibleCountry === country.name">
+
+      <div class="country-info">
+        <img *ngIf="country.flag; else defaultFlag" 
+             [src]="country.flag" 
+             alt="{{ country.name }} flag" 
+             class="country-flag" />
+
+        <ng-template #defaultFlag>
+          <img src="/World.png" alt="Default World Flag" class="country-flag" />
+        </ng-template>
+
+        <span class="country-name">{{ country.name }}</span>
+      </div>
+
+      <ul *ngIf="visibleCountry === country.name" class="league-list">
+        <li *ngFor="let league of leagues" class="league-item">
+
+            <!-- Usamos routerLink para redirigir al componente Fichaliga -->
+          <a [routerLink]="['/detalle-league', league.league.id]"> 
+
+            <img [src]="league.league.logo" class="league-flag" />
+            <span class="league-name">{{ league.league.name }}</span>
+          </a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>

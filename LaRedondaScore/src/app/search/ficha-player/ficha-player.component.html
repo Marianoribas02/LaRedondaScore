@@ -1,0 +1,23 @@
+
+<body>
+    <app-nav2></app-nav2>
+    <app-barra-lateral></app-barra-lateral> 
+
+<div *ngIf="jugadorDetails" class="ficha-jugador-container">
+  <h2>{{ jugadorDetails.name }}</h2>
+
+  <div class="player-info">
+    <img [src]="jugadorDetails.photo" alt="{{ jugadorDetails.name }} Foto" class="player-photo">
+    
+    <div class="player-details">
+      <p><strong>Edad:</strong> {{ jugadorDetails.age }}</p>
+      <p><strong>Nacionalidad:</strong> {{ jugadorDetails.nationality }}</p>
+      <p><strong>Posición:</strong> {{ jugadorDetails.position }}</p>
+      <p><strong>Peso:</strong> {{ jugadorDetails.weight }}</p>
+      <p><strong>Altura:</strong> {{ jugadorDetails.height ? jugadorDetails.height : 'No disponible' }}</p> 
+      <p><strong>Fecha Nacimiento:</strong> {{ jugadorDetails.birth.date }}</p>
+      <p><strong>Lugar Nacimiento:</strong> {{ jugadorDetails.birth.country }}</p> 
+    </div>
+  </div>
+</div>
+</body>

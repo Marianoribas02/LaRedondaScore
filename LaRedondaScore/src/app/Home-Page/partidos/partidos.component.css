@@ -1,0 +1,172 @@
+
+.partidosDia {
+    width: 60%;
+    height: auto;
+    position: relative; /* Para que el contenido pase por debajo */
+    z-index: 1; /* Asegura que el contenido no se quede encima del nav */
+    margin-top: 100px; /* Puedes ajustar esto si prefieres que el contenido quede más cerca del nav */
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, .2);
+    backdrop-filter: blur(80px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
+    color: #e0e0e0;
+    border-radius: 20px;
+    margin-left: 250px;
+    margin-right: 250px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;    
+}
+
+.partidosDia h1 {
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+}
+
+.partidosDia h2 {
+    font-size: 0.8em;
+    color: #FFD700;
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-weight: 600;
+    border-left: 5px solid #FFD700;
+    padding-left: 15px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s, transform 0.2s;
+    gap: 10px; 
+
+}
+
+li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+}
+
+
+li img {
+    width: 30px;
+    height: 30px;
+    margin: 0 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+
+.equipo {
+    display: flex;
+    align-items: center;
+    flex: 1;
+    justify-content: center;
+}
+
+.equipo-local {
+    justify-content: flex-start;
+    
+}
+
+.equipo-visitante {
+    justify-content: flex-end;
+}
+
+
+.equipo-local span, .equipo-visitante span {
+    font-size: 0.8em;
+    color: #f0f0f0;
+    font-weight: 500;
+    text-align: center;
+}
+
+
+.marcador {
+    font-size: 1em;
+    font-weight: bold;
+    color: #f0f0f0;
+    text-align: center;
+    min-width: 60px;
+    flex-shrink: 0;
+}
+
+.estado {
+    font-size: 0.8em;
+    color: #FFA500;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    min-width: 100px;
+    text-align: right;
+    flex-shrink: 0; 
+}
+
+
+.partidosDia h1, .partidosDia h2, li span {
+    font-family: 'Arial', sans-serif;
+}
+
+.navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.navegacion button {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 30px;
+    height: 30px;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+}
+
+.navegacion button:hover {
+    background-color: #F57C00; 
+    transform: scale(1.1); 
+}
+
+.navegacion button:active {
+    background-color: #E65100;
+    transform: scale(1.05);
+}
+
+.navegacion span {
+    font-size: 18px;
+    font-weight: bold;
+    color: #FFD700;
+    padding: 0 10px;
+}
+
+.equipo {
+    transition: background-color 0.3s, box-shadow 0.3s, border 0.3s;
+    cursor: pointer;
+  }
+  
+  .equipo:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Fondo transparente */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.5); /* Iluminación suave */
+  }
+  

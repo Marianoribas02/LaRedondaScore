@@ -1,0 +1,28 @@
+<div class="sidebar">
+  <h2>Equipos Favoritos</h2>
+
+  <!-- Mensaje de retroalimentación -->
+  <p *ngIf="mensaje" class="feedback">{{ mensaje }}</p>
+
+    <!-- Mensaje cuando NO hay favoritos -->
+  <p *ngIf="!mensaje && (equiposFavoritos | keyvalue).length === 0" class="no-favorites">
+    No hay equipos favoritos aún.
+  </p>
+
+  <!-- Lista de equipos favoritos -->
+  <ul>
+    <li *ngFor="let equipo of equiposFavoritos | keyvalue" [class.expanded]="true">
+      <div class="equipo-info" (click)="irAEquipo(equipo.value.id)">
+        
+        <img [src]="equipo.value.imagen" alt="{{ equipo.value.nombre }}" class="country-flag" />
+        <span class="equipo-name">{{ equipo.value.nombre }}</span>
+
+        <!-- Botón de eliminar con ícono de tacho de basura -->
+        <button (click)="eliminarEquipo(equipo.value.nombre, $event)" class="delete-button">
+          <img src="icons8-basura-24.png" alt="Eliminar" class="trash-icon" />
+        </button>
+      </div>
+    </li>
+  </ul>
+</div>
+

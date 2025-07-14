@@ -1,0 +1,48 @@
+<div *ngIf="tabla.length > 0" class="tabla-container">
+  <h3 class="tabla-title">Tabla de Posiciones</h3>
+
+  <!-- Iteramos por cada grupo -->
+  <div *ngFor="let grupo of tabla">
+    <!-- Si el grupo tiene al menos un equipo, mostramos el título del grupo -->
+    <h4 *ngIf="grupo.length > 0">Grupo {{ grupo[0].group }}</h4>
+
+    <div class="tabla">
+      <table class="tabla-table">
+        <thead>
+          <tr>
+            <th>Posición</th>
+            <th>Equipo</th>
+            <th>Partidos Jugados</th>
+            <th>Victorias</th>
+            <th>Empates</th>
+            <th>Derrotas</th>
+            <th>Diferencia de Goles</th>
+            <th>Puntos</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Iteramos por los equipos del grupo -->
+          <tr *ngFor="let equipo of grupo" class="tabla-row">
+            <td>{{ equipo.rank }}</td>
+            <td>
+              <img [src]="equipo.team.logo" alt="{{ equipo.team.name }}" width="20" height="20">
+              {{ equipo.team.name }}
+            </td>
+            <td>{{ equipo.all.played }}</td>
+            <td>{{ equipo.all.win }}</td>
+            <td>{{ equipo.all.draw }}</td>
+            <td>{{ equipo.all.lose }}</td>
+            <td>{{ equipo.goalsDiff }}</td>
+            <td>{{ equipo.points }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+<!-- Si no hay ninguna tabla -->
+<div *ngIf="tabla.length === 0" class="no-posiciones">
+  <p>No hay datos disponibles para la tabla de posiciones.</p>
+</div>

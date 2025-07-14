@@ -1,0 +1,92 @@
+.search-container {
+    width: 300px;
+    background: rgba(255, 255, 255, 0.1);
+
+
+}
+
+
+input[type="text"]::placeholder {
+    color: #ffffff;
+    opacity: 1; 
+}
+
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    color: #e0e0e0;
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.loading-indicator {
+    color: #FFD700;
+    margin-top: 10px;
+}
+
+.search-results {
+    position: absolute;
+    top: 100%; /* Se despliega justo debajo del input de búsqueda */
+    width: 300px;
+    margin: auto;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 1000; /* Asegura que esté encima de otros elementos */
+}
+
+.dropdown-menu {
+    padding: 0;
+    list-style: none;
+}
+
+.dropdown-menu li {
+    padding: 8px;
+    transition: background 0.3s;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu li:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.team-item, .player-item, .dt-item{
+    display: flex;
+    align-items: center;
+}
+
+.team-logo, .dt-photo, .player-photo {
+    width: 30px;
+    height: auto;
+    margin-right: 10px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.team-name, .player-name, .dt-name {
+    color: #FFD700;
+    font-size: 18px;
+}
+
+.team-item a, .player-item a, .dt-item a{
+    text-decoration: none; 
+    color: #FFD700; 
+    display: flex; /* Asegura que el enlace tome el estilo del contenedor */
+    align-items: center;
+}
+
+.team-item a:hover, .player-item a:hover, .dt-item a:hover {
+    color: #ffffff; /* Cambia el color al pasar el mouse, si lo deseas */
+}
+
+
+.no-results {
+    color: #FFD700;
+    text-align: center;
+    margin-top: 10px;
+}

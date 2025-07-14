@@ -1,0 +1,63 @@
+<div class="search-container">
+  <input 
+      type="text" 
+      placeholder="Buscar..." 
+      [(ngModel)]="searchTerm" 
+      (keyup.enter)="onInputChange()" 
+      aria-label="Buscar">
+   <!-- Indicador de carga -->
+   <div *ngIf="loading" class="loading-indicator">      Cargando...   </div>
+</div>
+
+<!-- Resultados de búsqueda, fuera del contenedor principal -->
+<div class="search-results" *ngIf="filteredEquipos.length > 0 || filteredJugadores.length > 0 || filteredDts.length > 0">
+  <!-- Lista de equipos encontrados -->
+  <ul *ngIf="filteredEquipos.length > 0" class="dropdown-menu">
+      <li *ngFor="let equipo of filteredEquipos">
+          <div class="team-item">
+              <a [routerLink]="['/ficha-equipo', equipo.id]">
+                  <img [src]="equipo.logo" alt="{{ equipo.name }} Logo" class="team-logo">
+                  <span class="team-name">{{ equipo.name }}</span>
+              </a>
+          </div>
+      </li>
+  </ul>
+
+
+     <!-- Lista de dts encontrados -->
+     <ul *ngIf="filteredDts.length > 0" class="dropdown-menu">
+        <li *ngFor="let tecnico of filteredDts">
+            <div class="dt-item">
+                <a [routerLink]="['/ficha-dt', tecnico.id]">
+                    <img [src]="tecnico.photo" alt="{{ tecnico.name }} Foto" class="dt-photo">
+                    <span class="dt-name">{{ tecnico.name }} - (DT)</span>
+                </a>
+            </div>
+        </li>
+    </ul>
+
+
+  <!-- Lista de jugadores encontrados -->
+  <ul *ngIf="filteredJugadores.length > 0" class="dropdown-menu">
+      <li *ngFor="let jugador of filteredJugadores">
+          <div class="player-item">
+              <a [routerLink]="['/ficha-player', jugador.id]">
+                  <img [src]="jugador.photo" alt="{{ jugador.name }} Foto" class="player-photo">
+                  <span class="player-name">{{ jugador.name }}</span>
+              </a>
+          </div>
+      </li>
+  </ul>
+
+ 
+
+
+
+</div>
+
+
+
+<!-- Mensaje cuando no hay resultados -->
+<div *ngIf="filteredEquipos.length === 0 && filteredDts.length === 0 && filteredJugadores.length === 0 && searchTerm.length > 2 && !loading" class="no-results">
+No se encontraron resultados.
+</div>

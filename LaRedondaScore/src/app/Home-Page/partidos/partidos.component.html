@@ -1,0 +1,51 @@
+<div class="partidosDia">
+  <h1>PARTIDOS DEL DÍA</h1>
+
+  <!-- Flechas de navegación -->
+  <div class="navegacion">
+    <button class="" (click)="anteriorDia()">&#60;</button> <!-- Flecha izquierda -->
+    <span>{{ fechaSeleccionada }}</span> <!-- Mostrar la fecha actual -->
+    <button class="" (click)="siguienteDia()">&#62;</button> <!-- Flecha derecha -->
+  </div>
+
+  <!-- Mostrar los partidos agrupados por liga -->
+  <div *ngFor="let liga of (partidosPorLiga | keyvalue)">
+    <h2>{{ liga.key }}</h2>
+    <ul>
+      <li *ngFor="let partido of liga.value">
+        <div class="equipo equipo-local"    (click)="irAEquipo(partido.teams.home.id)">
+          <img [src]="partido.teams.home.logo" alt="{{ partido.teams.home.name }}" />
+          <span>{{ partido.teams.home.name }}</span>
+        </div>
+
+       <div class="marcador">
+  <span>{{ partido.goals.home }} - {{ partido.goals.away }}</span>
+
+  <!-- Mostrar goles en Tiempo Extra si existen -->
+  <ng-container *ngIf="partido.score.extratime.home !== null || partido.score.extratime.away !== null">
+    <br />
+    <small>ET: {{ partido.score.extratime.home ?? 0 }} - {{ partido.score.extratime.away ?? 0 }}</small>
+  </ng-container>
+
+  <!-- Mostrar goles por penales si existen -->
+  <ng-container *ngIf="partido.score.penalty.home !== null || partido.score.penalty.away !== null">
+    <br />
+    <small>Penales: {{ partido.score.penalty.home ?? 0 }} - {{ partido.score.penalty.away ?? 0 }}</small>
+  </ng-container>
+</div>
+
+
+        <div class="equipo equipo-visitante"  (click)="irAEquipo(partido.teams.away.id)">
+          <span>{{ partido.teams.away.name }}</span>
+          <img [src]="partido.teams.away.logo" alt="{{ partido.teams.away.name }}" />
+        </div>
+
+        <span class="estado">
+          {{ getEstadoPartido(partido.fixture.date, partido.goals.home, partido.goals.away, partido.fixture.status) }}
+        </span>
+
+        <button [routerLink]="['/ficha-partido', partido.fixture.id]">+</button>
+      </li>
+    </ul>
+  </div>
+</div>

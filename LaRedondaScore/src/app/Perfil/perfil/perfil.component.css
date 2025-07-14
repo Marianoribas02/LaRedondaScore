@@ -1,0 +1,101 @@
+/* Eliminar márgenes y rellenos de html y body */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+  }
+  
+  /* Contenedor de fondo */
+  .background-container {
+    height: 100vh;           /* Asegura que ocupe toda la altura de la pantalla */
+    display: flex;           /* Usa flexbox para centrar los elementos */
+    flex-direction: column;  /* Los elementos dentro estarán uno encima del otro */
+    justify-content: center; /* Centra los elementos verticalmente */
+    align-items: center;     /* Centra los elementos horizontalmente */
+    background: url(../../Imagenes/FondoPage.png) no-repeat center center;
+    background-size: cover;  /* Asegura que la imagen cubra toda la pantalla */
+    width: 100%;
+  }
+  
+  /* Estilo para cada perfil */
+  .perfil-container {
+    width: 80%;
+    max-width: 600px;            /* Limita el tamaño máximo para que no sea muy grande en pantallas grandes */
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(80px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px 0;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  /* Títulos en los contenedores */
+  .perfil-container h2 {
+    color: #ffffff;
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.7);
+  }
+  
+  /* Estilo para los botones */
+  .perfil-container button {
+    background-color: #FF9800;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    padding: 12px;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+    margin-top: 20px;
+  }
+  
+  .perfil-container button:hover {
+    background-color: #F57C00;
+    transform: scale(1.05);
+  }
+  
+  .perfil-container button:active {
+    background-color: #E65100;
+    transform: scale(1.02);
+  }
+  
+  /* Estilos para las secciones de favoritos */
+  .perfil-container .favoritos ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .perfil-container .favoritos li {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    transition: background 0.3s, transform 0.2s;
+    gap: 15px;
+    color: #e0e0e0;
+  }
+  
+  .perfil-container .favoritos li img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+  }
+  
+  .perfil-container .favoritos li:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: scale(1.02);
+  }
+  

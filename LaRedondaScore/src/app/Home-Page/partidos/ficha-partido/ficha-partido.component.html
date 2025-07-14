@@ -1,0 +1,154 @@
+<app-nav2></app-nav2>
+<app-barra-lateral></app-barra-lateral> 
+<body>
+<div *ngIf="!cargando && detallesPartido">
+  <div class="FichaPartido">
+  <h1>Detalles del Partido</h1>
+  
+  <div *ngIf="detallesPartido.teams">
+    <div class="equipo equipo-local">
+      <img [src]="detallesPartido.teams.home.logo" alt="{{ detallesPartido.teams.home.name }}" />
+      <h3>{{ detallesPartido.teams.home.name }}</h3>
+    </div>
+
+    <div class="marcador">
+  <span>{{ detallesPartido.goals.home }} - {{ detallesPartido.goals.away }}</span>
+
+  <!-- Mostrar goles en Tiempo Extra si existen -->
+  <ng-container *ngIf="detallesPartido.score.extratime.home !== null || detallesPartido.score.extratime.away !== null">
+    <br />
+    <small>ET: {{ detallesPartido.score.extratime.home ?? 0 }} - {{ detallesPartido.score.extratime.away ?? 0 }}</small>
+  </ng-container>
+
+  <!-- Mostrar goles por penales si existen -->
+  <ng-container *ngIf="detallesPartido.score.penalty.home !== null || detallesPartido.score.penalty.away !== null">
+    <br />
+    <small>Penales: {{ detallesPartido.score.penalty.home ?? 0 }} - {{ detallesPartido.score.penalty.away ?? 0 }}</small>
+  </ng-container>
+
+</div>
+
+    
+
+    <div class="equipo equipo-visitante">
+      <h3>{{ detallesPartido.teams.away.name }}</h3>
+      <img [src]="detallesPartido.teams.away.logo" alt="{{ detallesPartido.teams.away.name }}" />
+    </div>
+  </div>
+
+<div class="timeline">
+  <div *ngFor="let ev of eventosPartido" class="timeline-event">
+
+    <!-- Lado izquierdo (Local) -->
+    <div class="event-side left">
+      <ng-container *ngIf="ev.team.id === detallesPartido.teams.home.id">
+        <div class="event-content" [ngClass]="getClaseEvento(ev)">
+          <span class="icono">{{ getIconoEvento(ev) }}</span>
+          <div class="jugador">
+            <strong>{{ ev.player?.name }}</strong>
+            <small *ngIf="ev.assist?.name">Asist: {{ ev.assist.name }}</small>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+    <!-- Minuto siempre en el centro -->
+    <div class="event-time">
+      {{ ev.time.elapsed }}<span *ngIf="ev.time.extra">+{{ ev.time.extra }}</span>'
+    </div>
+
+    <!-- Lado derecho (Visitante) -->
+    <div class="event-side right">
+      <ng-container *ngIf="ev.team.id === detallesPartido.teams.away.id">
+        <div class="event-content" [ngClass]="getClaseEvento(ev)">
+          <span class="icono">{{ getIconoEvento(ev) }}</span>
+          <div class="jugador">
+            <strong>{{ ev.player?.name }}</strong>
+            <small *ngIf="ev.assist?.name">Asist: {{ ev.assist.name }}</small>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+
+  </div>
+</div>
+
+
+  <div class="formaciones" *ngIf="detallesPartido.lineups?.length > 0">
+  
+    <div class="formacion equipo_local" *ngIf="detallesPartido.lineups[0]">
+      <h4>{{ detallesPartido.lineups[0]?.team.name || 'Equipo Local' }} ({{ detallesPartido.lineups[0]?.formation || 'N/A' }}):</h4>
+      <h4>DT: {{ detallesPartido.lineups[0]?.coach?.name || 'N/A' }}</h4>
+      <ul>
+        <li *ngFor="let jugador of detallesPartido.lineups[0]?.startXI">
+          {{ getPosicion(jugador.player?.pos) || 'N/A' }} - {{ jugador.player?.number || 'N/A' }} - {{ jugador.player?.name || 'Desconocido' }}
+        </li>
+      </ul>
+    </div>
+  
+    <div class="formacion equipo_visitante" *ngIf="detallesPartido.lineups[1]">
+      <h4>{{ detallesPartido.lineups[1]?.team.name || 'Equipo Visitante' }} ({{ detallesPartido.lineups[1]?.formation || 'N/A' }}):</h4>
+      <h4>DT: {{ detallesPartido.lineups[1]?.coach?.name || 'N/A' }}</h4>
+      <ul>
+        <li *ngFor="let jugador of detallesPartido.lineups[1]?.startXI">
+           {{ getPosicion(jugador.player?.pos) || 'N/A' }} - {{ jugador.player?.number || 'N/A' }} - {{ jugador.player?.name || 'Desconocido' }}
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+
+ <div class="Estadistica" *ngIf="estadisticasPartido?.length >= 2">
+  
+  <h2>Estadistica</h2>
+
+<ng-container *ngFor="let stat of estadisticasPartido[0].statistics">
+  <div class="estadistica-item"
+       *ngIf="getStatValue(estadisticasPartido[0].statistics, stat.type) > 0 || getStatValue(estadisticasPartido[1].statistics, stat.type) > 0">
+    
+    <div class="nombre-estadistica">{{ getNombreEstadistica(stat.type) }}</div>
+
+
+    <div class="barras-comparativas">
+      <span class="valor-local">
+        {{ getStatValue(estadisticasPartido[0].statistics, stat.type) }}
+      </span>
+
+      <div class="barra equipo-local2"
+           [style.width.%]="getStatValue(estadisticasPartido[0].statistics, stat.type) / maxStatValue(stat.type) * 100"
+           [title]="estadisticasPartido[0].team.name + ': ' + getStatValue(estadisticasPartido[0].statistics, stat.type)">
+      </div>
+
+      <div class="barra equipo-visitante2"
+           [style.width.%]="getStatValue(estadisticasPartido[1].statistics, stat.type) / maxStatValue(stat.type) * 100"
+           [title]="estadisticasPartido[1].team.name + ': ' + getStatValue(estadisticasPartido[1].statistics, stat.type)">
+      </div>
+
+      <span class="valor-visitante">
+        {{ getStatValue(estadisticasPartido[1].statistics, stat.type) }}
+      </span>
+    </div>
+  </div>
+</ng-container>
+
+</div>
+
+
+
+
+  <div class="informacion-adicional">
+    <h3>Información Adicional</h3>
+    <p>Fecha: {{ detallesPartido.fixture.date | date:'fullDate' }}</p>
+    <p>Horario: {{ detallesPartido.fixture.date | date:'shortTime' }}</p>
+    <p>Estadio: {{ detallesPartido.fixture.venue.name }}</p>
+    <p>Ciudad: {{ detallesPartido.fixture.venue.city }}</p>
+  </div>
+</div>
+</div>
+
+
+
+
+</body>
+
+

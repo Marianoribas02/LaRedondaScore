@@ -1,0 +1,19 @@
+<nav>
+    <div class="logo">
+      <img src="LRS.png" alt="Logo">
+    </div>
+  
+    <app-buscar></app-buscar>
+  
+    
+  <!-- profile.component.html -->
+<div class="profile-menu">
+  <button class="profile-btn" (click)="toggleMenu()">Perfil</button>
+  <div class="dropdown-menu" *ngIf="isMenuVisible">
+    <button class="menu-item" [routerLink]="['/perfil']" >Ver Perfil</button>
+    <button class="menu-item" (click)="logout()">Cerrar Sesión</button>
+  </div>
+</div>
+
+  </nav>
+  

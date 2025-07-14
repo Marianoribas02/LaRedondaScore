@@ -1,0 +1,49 @@
+.tabla-container {
+  width: auto;
+  margin: 20px auto;
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(80px);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  color: #e0e0e0;
+  border-radius: 10px;
+}
+
+.tabla-title {
+  color: #FFD700;
+  font-size: 1.5em;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.tabla-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tabla-table th, .tabla-table td {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.tabla-table th {
+  background-color: rgba(0, 0, 0, 0.1);
+  color: #FFD700;
+}
+
+.tabla-row:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.tabla-row td {
+  color: #e0e0e0;
+}
+
+.no-posiciones {
+  text-align: center;
+  color: #e0e0e0;
+  font-size: 1.2em;
+}
+

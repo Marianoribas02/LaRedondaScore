@@ -1,0 +1,108 @@
+.sidebar {
+    width: 300px; 
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(80px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    color: #e0e0e0;
+    border-radius: 10px;
+    position: fixed;
+    top: 700px; 
+    left: 50px; 
+    height: auto; 
+    max-height: 62vh; 
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  
+  /* Oculta la barra de desplazamiento en Chrome, Safari y Edge */
+  .sidebar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  h2 {
+    color: white;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  li {
+    display: flex;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    flex-direction: column;
+  }
+  
+  li:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  
+  .equipo-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .country-flag {
+    width: 28px;
+    height: auto;
+    margin-right: 8px;
+    border-radius: 20%;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .equipo-name {
+    font-size: 20px;
+    color: #FFD700;
+  }
+  
+  .equipo-info {
+    display: flex;
+    align-items: center;
+  }
+  
+  .equipo-name {
+    flex-grow: 1;
+  }
+  
+  .delete-button {
+    margin-left: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+ 
+  .delete-button:hover .trash-icon {
+    filter: brightness(1.5); 
+    transform: scale(1.1);  
+  }
+  .delete-button {
+    margin-left: 10px;
+    background-color: #f1f1f1;
+    border: none;
+    border-radius: 80%;
+    padding: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+  }
+  
+  .delete-button:hover {
+    background-color: #FFD700;
+  }
+  
+  .trash-icon {
+    width: 15px;
+    height: 15px;
+    transition: filter 0.3s ease, transform 0.3s ease;
+  }
+  
+  .delete-button:hover .trash-icon {
+    filter: brightness(1.5); 
+    transform: scale(1.1);  
+  }
+  
